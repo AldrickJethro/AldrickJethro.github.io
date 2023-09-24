@@ -260,3 +260,30 @@
   new PureCounter();
 
 })()
+
+    document.addEventListener("DOMContentLoaded", function () {
+    var videos = document.querySelectorAll('[id^="myVideo"]');
+
+    videos.forEach(function(video) {
+        // Your code to modify each video element goes here
+        // For example, you can add event listeners or make other modifications
+
+        //        var video = document.getElementById("myVideo1");
+
+                // Capture a frame from the video at a specific time (e.g., 5 seconds)
+                video.currentTime = 0.5; // Set the time in seconds
+
+                // Capture the frame and set it as the poster image
+                video.addEventListener("seeked", function () {
+                    var canvas = document.createElement("canvas");
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    var context = canvas.getContext("2d");
+                    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                    video.poster = canvas.toDataURL("image/jpeg");
+                });
+    });
+
+
+
+    });
