@@ -1,0 +1,12 @@
+# Ignore compiled files
+*.class
+*.jar
+*.war
+
+# Ignore build directories
+/target/
+/bin/
+/out/
+
+
+.idea/workspace.xml
